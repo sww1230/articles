@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>vs code 配置及插件 | frontEnd_blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="推荐使用vs code进行前端编码，规定Tab大小为2个空格 vs code配置  12345678910111213141516171819202122232425262728293031323334&amp;#123;  &quot;editor.tabSize&quot;: 2,  &quot;workbench.startupEditor&quot;: &quot;newUntitledFile&quot;,  &quot;workbench.iconTheme&quot;:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vs code 配置及插件">
+<meta property="og:url" content="https://sww1230.github.io/2019/03/25/vsCode/index.html">
+<meta property="og:site_name" content="frontEnd_blog">
+<meta property="og:description" content="推荐使用vs code进行前端编码，规定Tab大小为2个空格 vs code配置  12345678910111213141516171819202122232425262728293031323334&amp;#123;  &quot;editor.tabSize&quot;: 2,  &quot;workbench.startupEditor&quot;: &quot;newUntitledFile&quot;,  &quot;workbench.iconTheme&quot;:">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-09T08:21:01.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vs code 配置及插件">
+<meta name="twitter:description" content="推荐使用vs code进行前端编码，规定Tab大小为2个空格 vs code配置  12345678910111213141516171819202122232425262728293031323334&amp;#123;  &quot;editor.tabSize&quot;: 2,  &quot;workbench.startupEditor&quot;: &quot;newUntitledFile&quot;,  &quot;workbench.iconTheme&quot;:">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">frontEnd_blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">前端技术积累沉淀</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sww1230.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vsCode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/25/vsCode/" class="article-date">
+  <time datetime="2019-03-24T16:00:00.000Z" itemprop="datePublished">2019-03-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vs code 配置及插件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="推荐使用vs-code进行前端编码，规定Tab大小为2个空格"><a href="#推荐使用vs-code进行前端编码，规定Tab大小为2个空格" class="headerlink" title="推荐使用vs code进行前端编码，规定Tab大小为2个空格"></a>推荐使用vs code进行前端编码，规定Tab大小为2个空格</h4><ol>
+<li><p><strong>vs code配置</strong></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"editor.tabSize"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="string">"workbench.startupEditor"</span>: <span class="string">"newUntitledFile"</span>,</span><br><span class="line">  <span class="string">"workbench.iconTheme"</span>: <span class="string">"vscode-icons"</span>,</span><br><span class="line">  <span class="comment">// 以下为stylus配置</span></span><br><span class="line">  <span class="string">"stylusSupremacy.insertColons"</span>: <span class="literal">false</span>, <span class="comment">// 是否插入冒号</span></span><br><span class="line">  <span class="string">"stylusSupremacy.insertSemicolons"</span>: <span class="literal">false</span>, <span class="comment">// 是否插入分好</span></span><br><span class="line">  <span class="string">"stylusSupremacy.insertBraces"</span>: <span class="literal">false</span>, <span class="comment">// 是否插入大括号</span></span><br><span class="line">  <span class="string">"stylusSupremacy.insertNewLineAroundImports"</span>: <span class="literal">false</span>, <span class="comment">// import之后是否换行</span></span><br><span class="line">  <span class="string">"stylusSupremacy.insertNewLineAroundBlocks"</span>: <span class="literal">false</span>, <span class="comment">// 两个选择器中是否换行</span></span><br><span class="line">  <span class="string">"vetur.format.defaultFormatter.html"</span>: <span class="string">"js-beautify-html"</span>,</span><br><span class="line">  <span class="string">"eslint.autoFixOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"eslint.validate"</span>: [</span><br><span class="line">    <span class="string">"javascript"</span>,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"language"</span>: <span class="string">"html"</span>,</span><br><span class="line">      <span class="string">"autoFix"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"language"</span>: <span class="string">"vue"</span>,</span><br><span class="line">      <span class="string">"autoFix"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"javascriptreact"</span>,</span><br><span class="line">    <span class="string">"html"</span>,</span><br><span class="line">    <span class="string">"vue"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"eslint.options"</span>: &#123; <span class="string">"plugins"</span>: [<span class="string">"html"</span>] &#125;,</span><br><span class="line">  <span class="string">"prettier.singleQuote"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"prettier.semi"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"javascript.format.insertSpaceBeforeFunctionParenthesis"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"vetur.format.js.InsertSpaceBeforeFunctionParenthesis"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"vetur.format.defaultFormatter.js"</span>: <span class="string">"prettier"</span>,</span><br><span class="line">  <span class="comment">// "prettier.eslintIntegration": true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>vs code 插件</strong></p>
+<ul>
+<li>Auto Close Tag</li>
+<li>Path Intellisense</li>
+<li>Prettier</li>
+<li>Vetur</li>
+<li>vscode-icons</li>
+<li>Markdown Preview Enhanced</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/03/25/vsCode/" data-id="cju9ib7q20007uju28es31gcz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/25/Git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/05/sass/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sass 是对 CSS 的扩展，让 CSS 语言更强大、优雅</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/07/valida/">js常见数据校验</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/05/typeScript/">typeScript</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/25/Git/">Git常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/25/vsCode/">vs code 配置及插件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/05/sass/">Sass 是对 CSS 的扩展，让 CSS 语言更强大、优雅</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenwu.shang<br>
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

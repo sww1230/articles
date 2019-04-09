@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>js常见数据校验 | frontEnd_blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.输入字符必须为中文  1234String.prototype.checkChinese(str)&amp;#123;  var reg = new RegExp(&apos;^[\\u4E00-\\u9FFF]+$&apos;,&apos;g&apos;)  return reg.test(str);&amp;#125;   2.去除字符两边的空格   123String.prototype.trim = function()&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js常见数据校验">
+<meta property="og:url" content="https://sww1230.github.io/2019/04/07/valida/index.html">
+<meta property="og:site_name" content="frontEnd_blog">
+<meta property="og:description" content="1.输入字符必须为中文  1234String.prototype.checkChinese(str)&amp;#123;  var reg = new RegExp(&apos;^[\\u4E00-\\u9FFF]+$&apos;,&apos;g&apos;)  return reg.test(str);&amp;#125;   2.去除字符两边的空格   123String.prototype.trim = function()&amp;#123;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-09T08:14:21.580Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js常见数据校验">
+<meta name="twitter:description" content="1.输入字符必须为中文  1234String.prototype.checkChinese(str)&amp;#123;  var reg = new RegExp(&apos;^[\\u4E00-\\u9FFF]+$&apos;,&apos;g&apos;)  return reg.test(str);&amp;#125;   2.去除字符两边的空格   123String.prototype.trim = function()&amp;#123;">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">frontEnd_blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">前端技术积累沉淀</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sww1230.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-valida" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/07/valida/" class="article-date">
+  <time datetime="2019-04-06T16:00:00.000Z" itemprop="datePublished">2019-04-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js常见数据校验
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  1.<strong>输入字符必须为中文</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkChinese(str)&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^[\\u4E00-\\u9FFF]+$'</span>,<span class="string">'g'</span>)</span><br><span class="line">  <span class="keyword">return</span> reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  2.<strong>去除字符两边的空格</strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+|\s+$/gm</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  3.<strong>邮箱验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkEmaila = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/</span>;</span><br><span class="line">  <span class="keyword">return</span> reg.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  4.<strong>手机号码验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkPhone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^1[345789]\d&#123;9&#125;$/</span>.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  5.<strong>身价证号码验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkIdentityCode = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> city = &#123;<span class="number">11</span>:<span class="string">"北京"</span>,<span class="number">12</span>:<span class="string">"天津"</span>,<span class="number">13</span>:<span class="string">"河北"</span>,<span class="number">14</span>:<span class="string">"山西"</span>,<span class="number">15</span>:<span class="string">"内蒙古"</span>,<span class="number">21</span>:<span class="string">"辽宁"</span>,<span class="number">22</span>:<span class="string">"吉林"</span>,<span class="number">23</span>:<span class="string">"黑龙江 "</span>,<span class="number">31</span>:<span class="string">"上海"</span>,<span class="number">32</span>:<span class="string">"江苏"</span>,<span class="number">33</span>:<span class="string">"浙江"</span>,<span class="number">34</span>:<span class="string">"安徽"</span>,<span class="number">35</span>:<span class="string">"福建"</span>,<span class="number">36</span>:<span class="string">"江西"</span>,<span class="number">37</span>:<span class="string">"山东"</span>,<span class="number">41</span>:<span class="string">"河南"</span>,<span class="number">42</span>:<span class="string">"湖北 "</span>,<span class="number">43</span>:<span class="string">"湖南"</span>,<span class="number">44</span>:<span class="string">"广东"</span>,<span class="number">45</span>:<span class="string">"广西"</span>,<span class="number">46</span>:<span class="string">"海南"</span>,<span class="number">50</span>:<span class="string">"重庆"</span>,<span class="number">51</span>:<span class="string">"四川"</span>,<span class="number">52</span>:<span class="string">"贵州"</span>,<span class="number">53</span>:<span class="string">"云南"</span>,<span class="number">54</span>:<span class="string">"西藏 "</span>,<span class="number">61</span>:<span class="string">"陕西"</span>,<span class="number">62</span>:<span class="string">"甘肃"</span>,<span class="number">63</span>:<span class="string">"青海"</span>,<span class="number">64</span>:<span class="string">"宁夏"</span>,<span class="number">65</span>:<span class="string">"新疆"</span>,<span class="number">71</span>:<span class="string">"台湾"</span>,<span class="number">81</span>:<span class="string">"香港"</span>,<span class="number">82</span>:<span class="string">"澳门"</span>,<span class="number">91</span>:<span class="string">"国外 "</span>&#125;;</span><br><span class="line">    <span class="keyword">var</span> tip = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> pass= <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">this</span> || !<span class="regexp">/^\d&#123;6&#125;(18|19|20)?\d&#123;2&#125;(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d&#123;3&#125;(\d|X)$/i</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">        tip = <span class="string">"身份证号格式错误"</span>;</span><br><span class="line">        pass = <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!city[<span class="keyword">this</span>.substr(<span class="number">0</span>,<span class="number">2</span>)])&#123;</span><br><span class="line">        tip = <span class="string">"地址编码错误"</span>;</span><br><span class="line">        pass = <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="comment">//18位身份证需要验证最后一位校验位</span></span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.length == <span class="number">18</span>)&#123;</span><br><span class="line">          <span class="keyword">var</span> code = <span class="keyword">this</span>.split(<span class="string">''</span>);</span><br><span class="line">          <span class="comment">//∑(ai×Wi)(mod 11)</span></span><br><span class="line">          <span class="comment">//加权因子</span></span><br><span class="line">          <span class="keyword">var</span> factor = [ <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span> ];</span><br><span class="line">          <span class="comment">//校验位</span></span><br><span class="line">          <span class="keyword">var</span> parity = [ <span class="number">1</span>, <span class="number">0</span>, <span class="string">'X'</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span> ];</span><br><span class="line">          <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">var</span> ai = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">var</span> wi = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">17</span>; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              ai = code[i];</span><br><span class="line">              wi = factor[i];</span><br><span class="line">              sum += ai * wi;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">var</span> last = parity[sum % <span class="number">11</span>];</span><br><span class="line">          <span class="keyword">if</span>(parity[sum % <span class="number">11</span>] != code[<span class="number">17</span>])&#123;</span><br><span class="line">              tip = <span class="string">"校验位错误"</span>;</span><br><span class="line">              pass =<span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pass || tip;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  6.<strong>日期格式化</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.formatDate = <span class="function"><span class="keyword">function</span>(<span class="params">fmt</span>) </span>&#123; <span class="comment">//author: meizz</span></span><br><span class="line">    <span class="keyword">var</span> o = &#123;   </span><br><span class="line">      <span class="string">"M+"</span> : <span class="keyword">this</span>.getMonth()+<span class="number">1</span>,                 <span class="comment">//月份</span></span><br><span class="line">      <span class="string">"d+"</span> : <span class="keyword">this</span>.getDate(),                    <span class="comment">//日</span></span><br><span class="line">      <span class="string">"H+"</span> : <span class="keyword">this</span>.getHours(),                   <span class="comment">//小时</span></span><br><span class="line">      <span class="string">"m+"</span> : <span class="keyword">this</span>.getMinutes(),                 <span class="comment">//分</span></span><br><span class="line">      <span class="string">"s+"</span> : <span class="keyword">this</span>.getSeconds(),                 <span class="comment">//秒</span></span><br><span class="line">      <span class="string">"q+"</span> : <span class="built_in">Math</span>.floor((<span class="keyword">this</span>.getMonth()+<span class="number">3</span>)/<span class="number">3</span>), <span class="comment">//季度</span></span><br><span class="line">      <span class="string">"S"</span>  : <span class="keyword">this</span>.getMilliseconds()             <span class="comment">//毫秒</span></span><br><span class="line">    &#125;;   </span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/(y+)/</span>.test(fmt))   </span><br><span class="line">      fmt=fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="keyword">this</span>.getFullYear()+<span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));   </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> o)   </span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span>+ k +<span class="string">")"</span>).test(fmt))   </span><br><span class="line">    fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length==<span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span>+ o[k]).substr((<span class="string">""</span>+ o[k]).length)));   </span><br><span class="line">    <span class="keyword">return</span> fmt;   </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.prototype.formatDate = <span class="function"><span class="keyword">function</span>(<span class="params">fmt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/^(\d&#123;13&#125;|\d&#123;10&#125;)$/</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Number</span>(<span class="keyword">this</span>)).formatDate(fmt)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">this</span>).formatDate(fmt)</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date().formatDate('yyyy年MM月dd日 HH:mm:ss')</span></span><br><span class="line"><span class="comment">// new Date().formatDate('HH:mm:ss')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(1554373056366).formatDate('yyyy/MM/dd')</span></span><br><span class="line"><span class="comment">// new Date('2019-08-02').formatDate('yyyy/MM/dd')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// '2018-09-23 12:23:10'.formatDate('yyyy年MM月dd日 HH时mm分ss秒')</span></span><br><span class="line"><span class="comment">// '1537676590000'.formatDate('yyyy/MM/dd HH:mm:ss')</span></span><br></pre></td></tr></table></figure></p>
+<p>  7.<strong>合法IP</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkIP = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^(?=(\b|\D))(((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))\.)&#123;3&#125;((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))(?=(\b|\D))$/</span>;</span><br><span class="line">  <span class="keyword">return</span> reg.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  8.<strong>输入字符类型为数字，且长度不能越过n值</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// symbols: &gt; || &lt; || &gt;= || &lt;= || != || == || len</span></span><br><span class="line"><span class="built_in">String</span>.prototype.numJudge = <span class="function"><span class="keyword">function</span>(<span class="params">symbols, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/^\d+\.?\d+$/</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">if</span> (symbols == <span class="string">'len'</span> &amp;&amp; !<span class="regexp">/\./</span>.test(<span class="keyword">this</span>) &amp;&amp; <span class="keyword">this</span>.length == value)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(symbols != <span class="string">'len'</span> &amp;&amp; <span class="built_in">eval</span>(<span class="keyword">this</span> + <span class="string">' '</span>+ symbols +<span class="string">' '</span> + value))&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/04/07/valida/" data-id="cju9idqtz0008uju2r5ll43ip" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/05/typeScript/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">typeScript</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/07/valida/">js常见数据校验</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/05/typeScript/">typeScript</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/25/Git/">Git常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/25/vsCode/">vs code 配置及插件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/05/sass/">Sass 是对 CSS 的扩展，让 CSS 语言更强大、优雅</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenwu.shang<br>
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>typeScript | frontEnd_blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是 TypeScript？TypeScript 是一种由微软开发的自由和开源的编程语言，它是 JavaScript 的一个超集，扩展了 JavaScript 的语法。TypeScript的设计目的应该是解决JavaScript的“痛点”：弱类型和没有命名空间，导致很难模块化  1.声明变量类型1234567891011121314151617var foo: string;foo = tru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typeScript">
+<meta property="og:url" content="https://sww1230.github.io/2019/04/05/typeScript/index.html">
+<meta property="og:site_name" content="frontEnd_blog">
+<meta property="og:description" content="什么是 TypeScript？TypeScript 是一种由微软开发的自由和开源的编程语言，它是 JavaScript 的一个超集，扩展了 JavaScript 的语法。TypeScript的设计目的应该是解决JavaScript的“痛点”：弱类型和没有命名空间，导致很难模块化  1.声明变量类型1234567891011121314151617var foo: string;foo = tru">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-09T08:20:48.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="typeScript">
+<meta name="twitter:description" content="什么是 TypeScript？TypeScript 是一种由微软开发的自由和开源的编程语言，它是 JavaScript 的一个超集，扩展了 JavaScript 的语法。TypeScript的设计目的应该是解决JavaScript的“痛点”：弱类型和没有命名空间，导致很难模块化  1.声明变量类型1234567891011121314151617var foo: string;foo = tru">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">frontEnd_blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">前端技术积累沉淀</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sww1230.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-typeScript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/05/typeScript/" class="article-date">
+  <time datetime="2019-04-04T16:00:00.000Z" itemprop="datePublished">2019-04-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      typeScript
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>什么是 TypeScript？<br>TypeScript 是一种由微软开发的自由和开源的编程语言，它是 JavaScript 的一个超集，扩展了 JavaScript 的语法。<br>TypeScript的设计目的应该是解决JavaScript的“痛点”：弱类型和没有命名空间，导致很难模块化</p>
+</blockquote>
+<h4 id="1-声明变量类型"><a href="#1-声明变量类型" class="headerlink" title="1.声明变量类型"></a>1.声明变量类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo: string;</span><br><span class="line">foo = <span class="literal">true</span>; <span class="comment">//error: Cannot convert 'boolean' to string</span></span><br><span class="line">interface Phone &#123;</span><br><span class="line">    model: string</span><br><span class="line">    readonly price: number <span class="comment">// readonly 标记某个属性是只读的</span></span><br><span class="line">    producer?: string  <span class="comment">// ?标记 表示这个属性是可选的</span></span><br><span class="line">    [propName: string]: any <span class="comment">// any 任意属性 包括 string 和 number 类</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> newPhone: Phone = &#123;</span><br><span class="line">    model: <span class="string">'iPhone XS'</span>,</span><br><span class="line">    price: <span class="number">8599</span>, <span class="comment">// OK</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> phoneB: Phone = &#123;</span><br><span class="line">    model: <span class="string">'iPhone XS'</span>,</span><br><span class="line">    price: <span class="number">8599</span>,</span><br><span class="line">    producer: <span class="string">'Apple'</span>, <span class="comment">// OK</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-类型批注"><a href="#2-类型批注" class="headerlink" title="2.类型批注"></a>2.类型批注</h4><blockquote>
+<p>对于基本类型的批注是number, bool和string。而弱或动态类型的结构则是any类型。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">shape: string, width?: number, height: number</span>):<span class="title">string</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> area = width * height;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"I'm a "</span> + shape + <span class="string">" with an area of "</span> + area + <span class="string">" cm squared."</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(area(<span class="string">"rectangle"</span>, <span class="number">30</span>, <span class="number">15</span>));</span><br></pre></td></tr></table></figure>
+<h4 id="3-接口"><a href="#3-接口" class="headerlink" title="3.接口"></a>3.接口</h4><blockquote>
+<p>接口可以作为一个类型批注。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  interface Shape &#123;</span><br><span class="line">    name: string;</span><br><span class="line">    width: number;</span><br><span class="line">    height: number;</span><br><span class="line">    color?: string;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">shape : Shape</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> area = shape.width * shape.height;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"I'm "</span> + shape.name + <span class="string">" with area "</span> + area + <span class="string">" cm squared"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log( area( &#123;<span class="attr">name</span>: <span class="string">"rectangle"</span>, <span class="attr">width</span>: <span class="number">30</span>, <span class="attr">height</span>: <span class="number">15</span>&#125; ) );</span><br><span class="line"><span class="built_in">console</span>.log( area( &#123;<span class="attr">name</span>: <span class="string">"square"</span>, <span class="attr">width</span>: <span class="number">30</span>, <span class="attr">height</span>: <span class="number">30</span>, <span class="attr">color</span>: <span class="string">"blue"</span>&#125; ) );</span><br></pre></td></tr></table></figure>
+<h4 id="4-类"><a href="#4-类" class="headerlink" title="4.类"></a>4.类</h4><blockquote>
+<p>TypeScript支持集成了可选的类型批注支持的ECMAScript 6的类<br>  类中有两个属性 area 和 color，一个构造器 (constructor()), 一个方法是 shoutout()<br>  可以使用三种修饰符：public、private、protected</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    area: number;</span><br><span class="line">    private color: string;</span><br><span class="line">    <span class="keyword">constructor</span> ( public name: string, width: number, height: number ) &#123;</span><br><span class="line">        <span class="keyword">this</span>.area = width * height;</span><br><span class="line">        <span class="keyword">this</span>.color = <span class="string">"pink"</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    shoutout() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"I'm "</span> + <span class="keyword">this</span>.color + <span class="string">" "</span> + <span class="keyword">this</span>.name +  <span class="string">" with an area of "</span> + <span class="keyword">this</span>.area + <span class="string">" cm squared."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> square = <span class="keyword">new</span> Shape(<span class="string">"square"</span>, <span class="number">30</span>, <span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="5-继承"><a href="#5-继承" class="headerlink" title="5.继承"></a>5.继承</h4><blockquote>
+<p>继承使用关键字 extends;<br>super( name, width, height )</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape3D</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    volume: number;</span><br><span class="line">    <span class="keyword">constructor</span> ( public name: string, width: number, height: number, length: number ) &#123;</span><br><span class="line">        <span class="keyword">super</span>( name, width, height );</span><br><span class="line">        <span class="keyword">this</span>.volume = length * <span class="keyword">this</span>.area;</span><br><span class="line">    &#125;;</span><br><span class="line">    shoutout() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"I'm "</span> + <span class="keyword">this</span>.name +  <span class="string">" with a volume of "</span> + <span class="keyword">this</span>.volume + <span class="string">" cm cube."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    superShout() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.shoutout();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cube = <span class="keyword">new</span> Shape3D(<span class="string">"cube"</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>);</span><br><span class="line"><span class="built_in">console</span>.log( cube.shoutout() );</span><br><span class="line"><span class="built_in">console</span>.log( cube.superShout() );</span><br></pre></td></tr></table></figure>
+<h4 id="6-抽象类"><a href="#6-抽象类" class="headerlink" title="6.抽象类"></a>6.抽象类</h4><blockquote>
+<p>抽象类是某个类具体实现的抽象表述，作为其他类的基类使用。<br>TypeScript 中使用 abstract 关键字表示抽象类以及其内部的抽象方法</p>
+</blockquote>
+<p><strong>它具有两个特点：</strong></p>
+<ol>
+<li>不能被实例化</li>
+<li>其抽象方法必须被子类实现</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">abstract <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    public abstract makeSound(): <span class="keyword">void</span></span><br><span class="line">    public move() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Roaming...'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    makeSound() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Meow~'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> tom = <span class="keyword">new</span> Cat()</span><br><span class="line">tom.makeSound() <span class="comment">// =&gt; 'Meow~'</span></span><br><span class="line">tom.move() <span class="comment">// =&gt; 'Roaming...'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述例子中，我们创建了一个抽象类 Animal，它定义了一个抽象方法 makeSound。然后，我们定义了一个 Cat 类，继承自 Animal。因为 Animal 定义了 makeSound 抽象类，所以我们必须在 Cat 类里面实现它。不然的话，TS 会报错。</p>
+</blockquote>
+<h4 id="7-类与接口"><a href="#7-类与接口" class="headerlink" title="7.类与接口"></a>7.类与接口</h4><blockquote>
+<p>类可以实现（implement）接口。通过接口，你可以强制地指明类遵守某个契约。你可以在接口中声明一个方法，然后要求类去具体实现它。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">interface ClockInterface &#123;</span><br><span class="line">    currentTime: <span class="built_in">Date</span></span><br><span class="line">    setTime(d: <span class="built_in">Date</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clock</span> <span class="title">implements</span> <span class="title">ClockInterface</span> </span>&#123;</span><br><span class="line">    currentTime: <span class="built_in">Date</span></span><br><span class="line">    setTime(d: <span class="built_in">Date</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.currentTime = d</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>接口与抽象类的区别</strong></p>
+<ol>
+<li>类可以实现（implement）多个接口，但只能扩展（extends）自一个抽象类。</li>
+<li>抽象类中可以包含具体实现，接口不能。</li>
+<li>抽象类在运行时是可见的，可以通过 instanceof 判断。接口则只在编译时起作用。</li>
+<li>接口只能描述类的公共（public）部分，不会检查私有成员，而抽象类没有这样的限制。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/04/05/typeScript/" data-id="cju9i8onf0006uju22ly07hkz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/07/valida/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js常见数据校验
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/25/Git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git常用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/07/valida/">js常见数据校验</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/05/typeScript/">typeScript</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/25/Git/">Git常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/25/vsCode/">vs code 配置及插件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/05/sass/">Sass 是对 CSS 的扩展，让 CSS 语言更强大、优雅</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wenwu.shang<br>
+      <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
