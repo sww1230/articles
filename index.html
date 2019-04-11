@@ -11,7 +11,7 @@
 <meta property="og:title" content="frontEnd_blog">
 <meta property="og:url" content="https://sww1230.github.io/index.html">
 <meta property="og:site_name" content="frontEnd_blog">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frontEnd_blog">
   
@@ -51,7 +51,7 @@
       </nav>
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sww1230.github.io"></form>
@@ -61,6 +61,53 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-valida" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/frontEnd_blog/2019/04/10/valida/" class="article-date">
+  <time datetime="2019-04-09T16:00:00.000Z" itemprop="datePublished">2019-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/frontEnd_blog/2019/04/10/valida/">js常见数据校验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  1.<strong>输入字符必须为中文</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkChinese(str)&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^[\\u4E00-\\u9FFF]+$'</span>,<span class="string">'g'</span>)</span><br><span class="line">  <span class="keyword">return</span> reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  2.<strong>去除字符两边的空格</strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+|\s+$/gm</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  3.<strong>邮箱验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkEmaila = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/</span>;</span><br><span class="line">  <span class="keyword">return</span> reg.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  4.<strong>手机号码验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkPhone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^1[345789]\d&#123;9&#125;$/</span>.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  5.<strong>身价证号码验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkIdentityCode = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> city = &#123;<span class="number">11</span>:<span class="string">"北京"</span>,<span class="number">12</span>:<span class="string">"天津"</span>,<span class="number">13</span>:<span class="string">"河北"</span>,<span class="number">14</span>:<span class="string">"山西"</span>,<span class="number">15</span>:<span class="string">"内蒙古"</span>,<span class="number">21</span>:<span class="string">"辽宁"</span>,<span class="number">22</span>:<span class="string">"吉林"</span>,<span class="number">23</span>:<span class="string">"黑龙江 "</span>,<span class="number">31</span>:<span class="string">"上海"</span>,<span class="number">32</span>:<span class="string">"江苏"</span>,<span class="number">33</span>:<span class="string">"浙江"</span>,<span class="number">34</span>:<span class="string">"安徽"</span>,<span class="number">35</span>:<span class="string">"福建"</span>,<span class="number">36</span>:<span class="string">"江西"</span>,<span class="number">37</span>:<span class="string">"山东"</span>,<span class="number">41</span>:<span class="string">"河南"</span>,<span class="number">42</span>:<span class="string">"湖北 "</span>,<span class="number">43</span>:<span class="string">"湖南"</span>,<span class="number">44</span>:<span class="string">"广东"</span>,<span class="number">45</span>:<span class="string">"广西"</span>,<span class="number">46</span>:<span class="string">"海南"</span>,<span class="number">50</span>:<span class="string">"重庆"</span>,<span class="number">51</span>:<span class="string">"四川"</span>,<span class="number">52</span>:<span class="string">"贵州"</span>,<span class="number">53</span>:<span class="string">"云南"</span>,<span class="number">54</span>:<span class="string">"西藏 "</span>,<span class="number">61</span>:<span class="string">"陕西"</span>,<span class="number">62</span>:<span class="string">"甘肃"</span>,<span class="number">63</span>:<span class="string">"青海"</span>,<span class="number">64</span>:<span class="string">"宁夏"</span>,<span class="number">65</span>:<span class="string">"新疆"</span>,<span class="number">71</span>:<span class="string">"台湾"</span>,<span class="number">81</span>:<span class="string">"香港"</span>,<span class="number">82</span>:<span class="string">"澳门"</span>,<span class="number">91</span>:<span class="string">"国外 "</span>&#125;;</span><br><span class="line">    <span class="keyword">var</span> tip = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> pass= <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">this</span> || !<span class="regexp">/^\d&#123;6&#125;(18|19|20)?\d&#123;2&#125;(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d&#123;3&#125;(\d|X)$/i</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">        tip = <span class="string">"身份证号格式错误"</span>;</span><br><span class="line">        pass = <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!city[<span class="keyword">this</span>.substr(<span class="number">0</span>,<span class="number">2</span>)])&#123;</span><br><span class="line">        tip = <span class="string">"地址编码错误"</span>;</span><br><span class="line">        pass = <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="comment">//18位身份证需要验证最后一位校验位</span></span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.length == <span class="number">18</span>)&#123;</span><br><span class="line">          <span class="keyword">var</span> code = <span class="keyword">this</span>.split(<span class="string">''</span>);</span><br><span class="line">          <span class="comment">//∑(ai×Wi)(mod 11)</span></span><br><span class="line">          <span class="comment">//加权因子</span></span><br><span class="line">          <span class="keyword">var</span> factor = [ <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span> ];</span><br><span class="line">          <span class="comment">//校验位</span></span><br><span class="line">          <span class="keyword">var</span> parity = [ <span class="number">1</span>, <span class="number">0</span>, <span class="string">'X'</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span> ];</span><br><span class="line">          <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">var</span> ai = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">var</span> wi = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">17</span>; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              ai = code[i];</span><br><span class="line">              wi = factor[i];</span><br><span class="line">              sum += ai * wi;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">var</span> last = parity[sum % <span class="number">11</span>];</span><br><span class="line">          <span class="keyword">if</span>(parity[sum % <span class="number">11</span>] != code[<span class="number">17</span>])&#123;</span><br><span class="line">              tip = <span class="string">"校验位错误"</span>;</span><br><span class="line">              pass =<span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pass || tip;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  6.<strong>日期格式化</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.formatDate = <span class="function"><span class="keyword">function</span>(<span class="params">fmt</span>) </span>&#123; <span class="comment">//author: meizz</span></span><br><span class="line">    <span class="keyword">var</span> o = &#123;   </span><br><span class="line">      <span class="string">"M+"</span> : <span class="keyword">this</span>.getMonth()+<span class="number">1</span>,                 <span class="comment">//月份</span></span><br><span class="line">      <span class="string">"d+"</span> : <span class="keyword">this</span>.getDate(),                    <span class="comment">//日</span></span><br><span class="line">      <span class="string">"H+"</span> : <span class="keyword">this</span>.getHours(),                   <span class="comment">//小时</span></span><br><span class="line">      <span class="string">"m+"</span> : <span class="keyword">this</span>.getMinutes(),                 <span class="comment">//分</span></span><br><span class="line">      <span class="string">"s+"</span> : <span class="keyword">this</span>.getSeconds(),                 <span class="comment">//秒</span></span><br><span class="line">      <span class="string">"q+"</span> : <span class="built_in">Math</span>.floor((<span class="keyword">this</span>.getMonth()+<span class="number">3</span>)/<span class="number">3</span>), <span class="comment">//季度</span></span><br><span class="line">      <span class="string">"S"</span>  : <span class="keyword">this</span>.getMilliseconds()             <span class="comment">//毫秒</span></span><br><span class="line">    &#125;;   </span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/(y+)/</span>.test(fmt))   </span><br><span class="line">      fmt=fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="keyword">this</span>.getFullYear()+<span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));   </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> o)   </span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span>+ k +<span class="string">")"</span>).test(fmt))   </span><br><span class="line">    fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length==<span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span>+ o[k]).substr((<span class="string">""</span>+ o[k]).length)));   </span><br><span class="line">    <span class="keyword">return</span> fmt;   </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.prototype.formatDate = <span class="function"><span class="keyword">function</span>(<span class="params">fmt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/^(\d&#123;13&#125;|\d&#123;10&#125;)$/</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Number</span>(<span class="keyword">this</span>)).formatDate(fmt)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">this</span>).formatDate(fmt)</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date().formatDate('yyyy年MM月dd日 HH:mm:ss')</span></span><br><span class="line"><span class="comment">// new Date().formatDate('HH:mm:ss')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(1554373056366).formatDate('yyyy/MM/dd')</span></span><br><span class="line"><span class="comment">// new Date('2019-08-02').formatDate('yyyy/MM/dd')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// '2018-09-23 12:23:10'.formatDate('yyyy年MM月dd日 HH时mm分ss秒')</span></span><br><span class="line"><span class="comment">// '1537676590000'.formatDate('yyyy/MM/dd HH:mm:ss')</span></span><br></pre></td></tr></table></figure></p>
+<p>  7.<strong>合法IP</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkIP = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^(?=(\b|\D))(((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))\.)&#123;3&#125;((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))(?=(\b|\D))$/</span>;</span><br><span class="line">  <span class="keyword">return</span> reg.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  8.<strong>输入字符类型为数字，且长度不能越过n值</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// symbols: &gt; || &lt; || &gt;= || &lt;= || != || == || len</span></span><br><span class="line"><span class="built_in">String</span>.prototype.numJudge = <span class="function"><span class="keyword">function</span>(<span class="params">symbols, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/^\d+\.?\d+$/</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">if</span> (symbols == <span class="string">'len'</span> &amp;&amp; !<span class="regexp">/\./</span>.test(<span class="keyword">this</span>) &amp;&amp; <span class="keyword">this</span>.length == value)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(symbols != <span class="string">'len'</span> &amp;&amp; <span class="built_in">eval</span>(<span class="keyword">this</span> + <span class="string">' '</span>+ symbols +<span class="string">' '</span> + value))&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/04/10/valida/" data-id="cjucl421i0008z8u2u1dic6hj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -111,54 +158,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/09/blog/" data-id="cju9q5knf0000ppu2gq5z3klm" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/09/blog/" data-id="cjucl421a0001z8u2czwyb8x7" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/blog/">blog</a></li></ul>
 
-
-  
-    <article id="post-valida" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/frontEnd_blog/2019/04/07/valida/" class="article-date">
-  <time datetime="2019-04-06T16:00:00.000Z" itemprop="datePublished">2019-04-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/frontEnd_blog/2019/04/07/valida/">js常见数据校验</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  1.<strong>输入字符必须为中文</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkChinese(str)&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^[\\u4E00-\\u9FFF]+$'</span>,<span class="string">'g'</span>)</span><br><span class="line">  <span class="keyword">return</span> reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  2.<strong>去除字符两边的空格</strong></p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+|\s+$/gm</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  3.<strong>邮箱验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkEmaila = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/</span>;</span><br><span class="line">  <span class="keyword">return</span> reg.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  4.<strong>手机号码验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkPhone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^1[345789]\d&#123;9&#125;$/</span>.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  5.<strong>身价证号码验证</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkIdentityCode = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> city = &#123;<span class="number">11</span>:<span class="string">"北京"</span>,<span class="number">12</span>:<span class="string">"天津"</span>,<span class="number">13</span>:<span class="string">"河北"</span>,<span class="number">14</span>:<span class="string">"山西"</span>,<span class="number">15</span>:<span class="string">"内蒙古"</span>,<span class="number">21</span>:<span class="string">"辽宁"</span>,<span class="number">22</span>:<span class="string">"吉林"</span>,<span class="number">23</span>:<span class="string">"黑龙江 "</span>,<span class="number">31</span>:<span class="string">"上海"</span>,<span class="number">32</span>:<span class="string">"江苏"</span>,<span class="number">33</span>:<span class="string">"浙江"</span>,<span class="number">34</span>:<span class="string">"安徽"</span>,<span class="number">35</span>:<span class="string">"福建"</span>,<span class="number">36</span>:<span class="string">"江西"</span>,<span class="number">37</span>:<span class="string">"山东"</span>,<span class="number">41</span>:<span class="string">"河南"</span>,<span class="number">42</span>:<span class="string">"湖北 "</span>,<span class="number">43</span>:<span class="string">"湖南"</span>,<span class="number">44</span>:<span class="string">"广东"</span>,<span class="number">45</span>:<span class="string">"广西"</span>,<span class="number">46</span>:<span class="string">"海南"</span>,<span class="number">50</span>:<span class="string">"重庆"</span>,<span class="number">51</span>:<span class="string">"四川"</span>,<span class="number">52</span>:<span class="string">"贵州"</span>,<span class="number">53</span>:<span class="string">"云南"</span>,<span class="number">54</span>:<span class="string">"西藏 "</span>,<span class="number">61</span>:<span class="string">"陕西"</span>,<span class="number">62</span>:<span class="string">"甘肃"</span>,<span class="number">63</span>:<span class="string">"青海"</span>,<span class="number">64</span>:<span class="string">"宁夏"</span>,<span class="number">65</span>:<span class="string">"新疆"</span>,<span class="number">71</span>:<span class="string">"台湾"</span>,<span class="number">81</span>:<span class="string">"香港"</span>,<span class="number">82</span>:<span class="string">"澳门"</span>,<span class="number">91</span>:<span class="string">"国外 "</span>&#125;;</span><br><span class="line">    <span class="keyword">var</span> tip = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> pass= <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">this</span> || !<span class="regexp">/^\d&#123;6&#125;(18|19|20)?\d&#123;2&#125;(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d&#123;3&#125;(\d|X)$/i</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">        tip = <span class="string">"身份证号格式错误"</span>;</span><br><span class="line">        pass = <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!city[<span class="keyword">this</span>.substr(<span class="number">0</span>,<span class="number">2</span>)])&#123;</span><br><span class="line">        tip = <span class="string">"地址编码错误"</span>;</span><br><span class="line">        pass = <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="comment">//18位身份证需要验证最后一位校验位</span></span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.length == <span class="number">18</span>)&#123;</span><br><span class="line">          <span class="keyword">var</span> code = <span class="keyword">this</span>.split(<span class="string">''</span>);</span><br><span class="line">          <span class="comment">//∑(ai×Wi)(mod 11)</span></span><br><span class="line">          <span class="comment">//加权因子</span></span><br><span class="line">          <span class="keyword">var</span> factor = [ <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span> ];</span><br><span class="line">          <span class="comment">//校验位</span></span><br><span class="line">          <span class="keyword">var</span> parity = [ <span class="number">1</span>, <span class="number">0</span>, <span class="string">'X'</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span> ];</span><br><span class="line">          <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">var</span> ai = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">var</span> wi = <span class="number">0</span>;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">17</span>; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              ai = code[i];</span><br><span class="line">              wi = factor[i];</span><br><span class="line">              sum += ai * wi;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">var</span> last = parity[sum % <span class="number">11</span>];</span><br><span class="line">          <span class="keyword">if</span>(parity[sum % <span class="number">11</span>] != code[<span class="number">17</span>])&#123;</span><br><span class="line">              tip = <span class="string">"校验位错误"</span>;</span><br><span class="line">              pass =<span class="literal">false</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pass || tip;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  6.<strong>日期格式化</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.formatDate = <span class="function"><span class="keyword">function</span>(<span class="params">fmt</span>) </span>&#123; <span class="comment">//author: meizz</span></span><br><span class="line">    <span class="keyword">var</span> o = &#123;   </span><br><span class="line">      <span class="string">"M+"</span> : <span class="keyword">this</span>.getMonth()+<span class="number">1</span>,                 <span class="comment">//月份</span></span><br><span class="line">      <span class="string">"d+"</span> : <span class="keyword">this</span>.getDate(),                    <span class="comment">//日</span></span><br><span class="line">      <span class="string">"H+"</span> : <span class="keyword">this</span>.getHours(),                   <span class="comment">//小时</span></span><br><span class="line">      <span class="string">"m+"</span> : <span class="keyword">this</span>.getMinutes(),                 <span class="comment">//分</span></span><br><span class="line">      <span class="string">"s+"</span> : <span class="keyword">this</span>.getSeconds(),                 <span class="comment">//秒</span></span><br><span class="line">      <span class="string">"q+"</span> : <span class="built_in">Math</span>.floor((<span class="keyword">this</span>.getMonth()+<span class="number">3</span>)/<span class="number">3</span>), <span class="comment">//季度</span></span><br><span class="line">      <span class="string">"S"</span>  : <span class="keyword">this</span>.getMilliseconds()             <span class="comment">//毫秒</span></span><br><span class="line">    &#125;;   </span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/(y+)/</span>.test(fmt))   </span><br><span class="line">      fmt=fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="keyword">this</span>.getFullYear()+<span class="string">""</span>).substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length));   </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> o)   </span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"("</span>+ k +<span class="string">")"</span>).test(fmt))   </span><br><span class="line">    fmt = fmt.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, (<span class="built_in">RegExp</span>.$<span class="number">1.</span>length==<span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span>+ o[k]).substr((<span class="string">""</span>+ o[k]).length)));   </span><br><span class="line">    <span class="keyword">return</span> fmt;   </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.prototype.formatDate = <span class="function"><span class="keyword">function</span>(<span class="params">fmt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/^(\d&#123;13&#125;|\d&#123;10&#125;)$/</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Number</span>(<span class="keyword">this</span>)).formatDate(fmt)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">this</span>).formatDate(fmt)</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date().formatDate('yyyy年MM月dd日 HH:mm:ss')</span></span><br><span class="line"><span class="comment">// new Date().formatDate('HH:mm:ss')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// new Date(1554373056366).formatDate('yyyy/MM/dd')</span></span><br><span class="line"><span class="comment">// new Date('2019-08-02').formatDate('yyyy/MM/dd')</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// '2018-09-23 12:23:10'.formatDate('yyyy年MM月dd日 HH时mm分ss秒')</span></span><br><span class="line"><span class="comment">// '1537676590000'.formatDate('yyyy/MM/dd HH:mm:ss')</span></span><br></pre></td></tr></table></figure></p>
-<p>  7.<strong>合法IP</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkIP = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^(?=(\b|\D))(((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))\.)&#123;3&#125;((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))(?=(\b|\D))$/</span>;</span><br><span class="line">  <span class="keyword">return</span> reg.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  8.<strong>输入字符类型为数字，且长度不能越过n值</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// symbols: &gt; || &lt; || &gt;= || &lt;= || != || == || len</span></span><br><span class="line"><span class="built_in">String</span>.prototype.numJudge = <span class="function"><span class="keyword">function</span>(<span class="params">symbols, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/^\d+\.?\d+$/</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">if</span> (symbols == <span class="string">'len'</span> &amp;&amp; !<span class="regexp">/\./</span>.test(<span class="keyword">this</span>) &amp;&amp; <span class="keyword">this</span>.length == value)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(symbols != <span class="string">'len'</span> &amp;&amp; <span class="built_in">eval</span>(<span class="keyword">this</span> + <span class="string">' '</span>+ symbols +<span class="string">' '</span> + value))&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/07/valida/" data-id="cju9q5knq0004ppu245aq5gq2" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -235,9 +239,86 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/05/typeScript/" data-id="cju9q5knp0003ppu2ph78q9hb" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/05/typeScript/" data-id="cjucl421g0005z8u244x8ylsv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-clutter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/frontEnd_blog/2019/04/01/clutter/" class="article-date">
+  <time datetime="2019-03-31T16:00:00.000Z" itemprop="datePublished">2019-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/frontEnd_blog/2019/04/01/clutter/">杂烩 Screen MariaDB mock mysql gitlab 允许MySqlWorkbench访问数据库 ...</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装数据库"><a href="#安装数据库" class="headerlink" title="安装数据库"></a>安装数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install mariadb-server.x86_64</span><br><span class="line"></span><br><span class="line">systemctl start mariadb</span><br><span class="line"></span><br><span class="line">mysql -uroot</span><br><span class="line"></span><br><span class="line">show databases</span><br><span class="line">select user,host from mysql.user;</span><br><span class="line"></span><br><span class="line">启动 phpmyading</span><br><span class="line">systemctl restart httpd</span><br></pre></td></tr></table></figure>
+<h3 id="cnpm库系统搭建"><a href="#cnpm库系统搭建" class="headerlink" title="cnpm库系统搭建"></a>cnpm库系统搭建</h3><pre><code>1. 仓库地址：github.com/fengmk2/cnpmjs.org.git
+2. 文档说明：https://www.jianshu.com/p/659fb418c9e3
+</code></pre><h3 id="mockapi接口系统搭建"><a href="#mockapi接口系统搭建" class="headerlink" title="mockapi接口系统搭建"></a>mockapi接口系统搭建</h3><pre><code>1. rap2-delos: 后端数据API服务器，基于Koa + MySQL   
+    https://github.com/thx/rap2-delos
+2. rap2-dolores: 前端静态资源，基于React
+    https://github.com/thx/rap2-dolores
+</code></pre><h3 id="gitlab仓库系统搭建"><a href="#gitlab仓库系统搭建" class="headerlink" title="gitlab仓库系统搭建"></a>gitlab仓库系统搭建</h3><pre><code>&gt; 后续增加
+</code></pre><h3 id="git-去掉最近一次的提交"><a href="#git-去掉最近一次的提交" class="headerlink" title="git 去掉最近一次的提交"></a>git 去掉最近一次的提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br><span class="line">git push -f // 强制推送提交代码</span><br></pre></td></tr></table></figure>
+<h3 id="登录服务器的用户名IP及密码"><a href="#登录服务器的用户名IP及密码" class="headerlink" title="登录服务器的用户名IP及密码"></a>登录服务器的用户名IP及密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh username@127.0.0.1</span><br><span class="line">password123</span><br></pre></td></tr></table></figure>
+<h3 id="远程登录数据库"><a href="#远程登录数据库" class="headerlink" title="远程登录数据库"></a>远程登录数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -h 127.0.0.1 -p</span><br><span class="line">password123@!#</span><br></pre></td></tr></table></figure>
+<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum -y install nodejs</span><br><span class="line"></span><br><span class="line">超级简单的升级node.js的方法</span><br><span class="line">npm install -g n</span><br><span class="line">安装稳定的版本</span><br><span class="line">n stable</span><br></pre></td></tr></table></figure>
+<h3 id="安装MariaDB数据库"><a href="#安装MariaDB数据库" class="headerlink" title="安装MariaDB数据库"></a>安装MariaDB数据库</h3><blockquote>
+<p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</p>
+</blockquote>
+<ol>
+<li><p>安装mariadb</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mariadb-server mariadb-client</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>maria常用命令</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mariadb #启动服务</span><br><span class="line">systemctl enable mariadb #设置开机启动</span><br><span class="line">systemctl restart mariadb #重新启动</span><br><span class="line">systemctl stop mariadb.service #停止MariaDB</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录数据库 重置密码</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 本机登录</span><br><span class="line">mysql -u root -p;</span><br><span class="line">SET PASSWORD = PASSWORD(&apos;10quan10m@i&apos;);</span><br><span class="line"># 远程登录</span><br><span class="line">mysql -u root -h 192.168.2.128 -p</span><br><span class="line">password123@!#</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库常用命令</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">显示DBMS的所有数据库；</span><br><span class="line">show databases;</span><br><span class="line">创建数据库</span><br><span class="line">create database db_name；</span><br><span class="line">删除数据库</span><br><span class="line">drop database db_name；</span><br><span class="line">选择数据库 </span><br><span class="line">use db_name;</span><br><span class="line"></span><br><span class="line">显示当前使用的数据库</span><br><span class="line">select database();</span><br><span class="line">显示当前登录的用户名称</span><br><span class="line">select user();</span><br><span class="line">显示当前数据库支持及默认的存储引擎</span><br><span class="line">show engines;</span><br><span class="line">显示当前数据库的触发器信息</span><br><span class="line">show triggers;</span><br><span class="line"></span><br><span class="line">显示当前数据库的表信息</span><br><span class="line">show tables;</span><br><span class="line">创建数据库表</span><br><span class="line">create table table_name；</span><br><span class="line">删除数据库表</span><br><span class="line">drop table table_name；</span><br><span class="line">显示当前数据库的表状态</span><br><span class="line">show table status;</span><br><span class="line">显示表结构信息</span><br><span class="line">describe table_name; 或 desc table_name; 或 show columns from able_name;</span><br><span class="line">显示表中的所有记录</span><br><span class="line">select * from table_name；</span><br><span class="line"></span><br><span class="line">查看mysql端口号</span><br><span class="line">mysql&gt; show global variables like &apos;port&apos;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
+<h3 id="安装-screen"><a href="#安装-screen" class="headerlink" title="安装 screen"></a>安装 screen</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</span><br><span class="line"></span><br><span class="line">yum install -y screen</span><br><span class="line">screen -dmS RAP2</span><br><span class="line">screen -x RAP2</span><br><span class="line">启动一个api后台服务</span><br><span class="line">npm start</span><br><span class="line">control + a + d</span><br></pre></td></tr></table></figure>
+<h3 id="rap2前端服务nginx配置"><a href="#rap2前端服务nginx配置" class="headerlink" title="rap2前端服务nginx配置"></a>rap2前端服务nginx配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/thx/rap2-dolores.git front-end</span><br><span class="line"></span><br><span class="line">nginx配置</span><br><span class="line">server&#123;</span><br><span class="line">    listen *:80;</span><br><span class="line">    server_name mockapi.nixin8.com;</span><br><span class="line">    root /opt/rap2/front-end/build;</span><br><span class="line">    index index.html;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root /opt/rap2/front-end/build;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="RAP2-Delos-后端数据API服务器"><a href="#RAP2-Delos-后端数据API服务器" class="headerlink" title="RAP2-Delos 后端数据API服务器"></a>RAP2-Delos 后端数据API服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. git clone https://github.com/thx/rap2-delos.git back-end</span><br><span class="line">2. cd back-end</span><br><span class="line">3. npm install</span><br><span class="line">4. 确认/config/config.dev.js中的配置</span><br><span class="line">5. npm run build</span><br><span class="line">6. 修改/config/config.prod.js中的服务器配置</span><br><span class="line">7. npm start</span><br></pre></td></tr></table></figure>
+<h3 id="允许MySqlWorkbench访问数据库"><a href="#允许MySqlWorkbench访问数据库" class="headerlink" title="允许MySqlWorkbench访问数据库"></a>允许MySqlWorkbench访问数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在服务器上进行操作，进入mysql</span><br><span class="line">mysql&gt;GRANT   ALL   PRIVILEGES   ON   *.*   TO   &apos;root&apos;@&apos;%&apos;   WITH   GRANT   OPTION  //赋予任何主机访问数据的权限</span><br><span class="line">mysql&gt;FLUSH   PRIVILEGES  //修改生效</span><br><span class="line">mysql&gt;EXIT  //退出MySQL服务器</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">场景：</span><br><span class="line">无hexo这个命令</span><br><span class="line">只能/data/www/node-v8.4.0-linux-x64/bin/hexo这样执行该命令</span><br><span class="line"></span><br><span class="line">解决：</span><br><span class="line">vi /etc/profile</span><br><span class="line">export PATH=$PATH:/data/www/node-v8.4.0-linux-x64/bin/</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">远程复制：</span><br><span class="line">scp md.zip root@192.168.258.126:/home/sww </span><br><span class="line"></span><br><span class="line">移动：</span><br><span class="line">mv md.zip /data/www/sww/</span><br><span class="line"></span><br><span class="line">解压：</span><br><span class="line">unzip md.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">跟踪日志：</span><br><span class="line">tailf /data/logs/nginx/error_sww.log</span><br><span class="line"></span><br><span class="line">执行过的命令记录：</span><br><span class="line">history</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen生成git ssh密钥:</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ssh-keygen -t rsa -C &quot;happysww1230@163.com&quot;</span><br><span class="line">密钥会包含id_rsa和id_rsa.pub两个文件，分别表示生成的私钥和公钥</span><br><span class="line">使用cat ~/.ssh/id_rsa.pub命令，并将相应内容复制到源代码管理服务器即可实现git的无密码管理</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/04/01/clutter/" data-id="cjucl421f0004z8u2aicste8i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/shell/">shell</a></li></ul>
+
     </footer>
   </div>
   
@@ -370,9 +451,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/03/25/Git/" data-id="cju9q5knl0001ppu2pvd2ru9p" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/03/25/Git/" data-id="cjucl42150000z8u2n88rgj39" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/git/">git</a></li></ul>
+
     </footer>
   </div>
   
@@ -421,9 +504,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/03/25/vsCode/" data-id="cju9q5knt0006ppu2pmgx7b2e" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/03/25/vsCode/" data-id="cjucl421m0009z8u2rtrb3go1" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/vsCode/">vsCode</a></li></ul>
+
     </footer>
   </div>
   
@@ -466,79 +551,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/03/05/sass/" data-id="cju9q5knn0002ppu2pjcxbgz8" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/03/05/sass/" data-id="cjucl421e0003z8u22hwqy3jl" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/css/">css</a></li></ul>
 
-
-  
-    <article id="post-杂烩" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/frontEnd_blog/2019/03/01/杂烩/" class="article-date">
-  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/frontEnd_blog/2019/03/01/杂烩/">杂烩 Screen MariaDB mock mysql gitlab 允许MySqlWorkbench访问数据库 ...</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装数据库"><a href="#安装数据库" class="headerlink" title="安装数据库"></a>安装数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum install mariadb-server.x86_64</span><br><span class="line"></span><br><span class="line">systemctl start mariadb</span><br><span class="line"></span><br><span class="line">mysql -uroot</span><br><span class="line"></span><br><span class="line">show databases</span><br><span class="line">select user,host from mysql.user;</span><br><span class="line"></span><br><span class="line">启动 phpmyading</span><br><span class="line">systemctl restart httpd</span><br></pre></td></tr></table></figure>
-<h3 id="cnpm库系统搭建"><a href="#cnpm库系统搭建" class="headerlink" title="cnpm库系统搭建"></a>cnpm库系统搭建</h3><pre><code>1. 仓库地址：github.com/fengmk2/cnpmjs.org.git
-2. 文档说明：https://www.jianshu.com/p/659fb418c9e3
-</code></pre><h3 id="mockapi接口系统搭建"><a href="#mockapi接口系统搭建" class="headerlink" title="mockapi接口系统搭建"></a>mockapi接口系统搭建</h3><pre><code>1. rap2-delos: 后端数据API服务器，基于Koa + MySQL   
-    https://github.com/thx/rap2-delos
-2. rap2-dolores: 前端静态资源，基于React
-    https://github.com/thx/rap2-dolores
-</code></pre><h3 id="gitlab仓库系统搭建"><a href="#gitlab仓库系统搭建" class="headerlink" title="gitlab仓库系统搭建"></a>gitlab仓库系统搭建</h3><pre><code>&gt; 后续增加
-</code></pre><h3 id="git-去掉最近一次的提交"><a href="#git-去掉最近一次的提交" class="headerlink" title="git 去掉最近一次的提交"></a>git 去掉最近一次的提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br><span class="line">git push -f // 强制推送提交代码</span><br></pre></td></tr></table></figure>
-<h3 id="登录服务器的用户名IP及密码"><a href="#登录服务器的用户名IP及密码" class="headerlink" title="登录服务器的用户名IP及密码"></a>登录服务器的用户名IP及密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh username@127.0.0.1</span><br><span class="line">password123</span><br></pre></td></tr></table></figure>
-<h3 id="远程登录数据库"><a href="#远程登录数据库" class="headerlink" title="远程登录数据库"></a>远程登录数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -h 127.0.0.1 -p</span><br><span class="line">password123@!#</span><br></pre></td></tr></table></figure>
-<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum -y install nodejs</span><br><span class="line"></span><br><span class="line">超级简单的升级node.js的方法</span><br><span class="line">npm install -g n</span><br><span class="line">安装稳定的版本</span><br><span class="line">n stable</span><br></pre></td></tr></table></figure>
-<h3 id="安装MariaDB数据库"><a href="#安装MariaDB数据库" class="headerlink" title="安装MariaDB数据库"></a>安装MariaDB数据库</h3><blockquote>
-<p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</p>
-</blockquote>
-<ol>
-<li><p>安装mariadb</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mariadb-server mariadb-client</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>maria常用命令</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mariadb #启动服务</span><br><span class="line">systemctl enable mariadb #设置开机启动</span><br><span class="line">systemctl restart mariadb #重新启动</span><br><span class="line">systemctl stop mariadb.service #停止MariaDB</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>登录数据库 重置密码</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 本机登录</span><br><span class="line">mysql -u root -p;</span><br><span class="line">SET PASSWORD = PASSWORD(&apos;10quan10m@i&apos;);</span><br><span class="line"># 远程登录</span><br><span class="line">mysql -u root -h 192.168.2.128 -p</span><br><span class="line">password123@!#</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数据库常用命令</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">显示DBMS的所有数据库；</span><br><span class="line">show databases;</span><br><span class="line">创建数据库</span><br><span class="line">create database db_name；</span><br><span class="line">删除数据库</span><br><span class="line">drop database db_name；</span><br><span class="line">选择数据库 </span><br><span class="line">use db_name;</span><br><span class="line"></span><br><span class="line">显示当前使用的数据库</span><br><span class="line">select database();</span><br><span class="line">显示当前登录的用户名称</span><br><span class="line">select user();</span><br><span class="line">显示当前数据库支持及默认的存储引擎</span><br><span class="line">show engines;</span><br><span class="line">显示当前数据库的触发器信息</span><br><span class="line">show triggers;</span><br><span class="line"></span><br><span class="line">显示当前数据库的表信息</span><br><span class="line">show tables;</span><br><span class="line">创建数据库表</span><br><span class="line">create table table_name；</span><br><span class="line">删除数据库表</span><br><span class="line">drop table table_name；</span><br><span class="line">显示当前数据库的表状态</span><br><span class="line">show table status;</span><br><span class="line">显示表结构信息</span><br><span class="line">describe table_name; 或 desc table_name; 或 show columns from able_name;</span><br><span class="line">显示表中的所有记录</span><br><span class="line">select * from table_name；</span><br><span class="line"></span><br><span class="line">查看mysql端口号</span><br><span class="line">mysql&gt; show global variables like &apos;port&apos;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
-<h3 id="安装-screen"><a href="#安装-screen" class="headerlink" title="安装 screen"></a>安装 screen</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</span><br><span class="line"></span><br><span class="line">yum install -y screen</span><br><span class="line">screen -dmS RAP2</span><br><span class="line">screen -x RAP2</span><br><span class="line">启动一个api后台服务</span><br><span class="line">npm start</span><br><span class="line">control + a + d</span><br></pre></td></tr></table></figure>
-<h3 id="rap2前端服务nginx配置"><a href="#rap2前端服务nginx配置" class="headerlink" title="rap2前端服务nginx配置"></a>rap2前端服务nginx配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/thx/rap2-dolores.git front-end</span><br><span class="line"></span><br><span class="line">nginx配置</span><br><span class="line">server&#123;</span><br><span class="line">    listen *:80;</span><br><span class="line">    server_name mockapi.nixin8.com;</span><br><span class="line">    root /opt/rap2/front-end/build;</span><br><span class="line">    index index.html;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root /opt/rap2/front-end/build;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="RAP2-Delos-后端数据API服务器"><a href="#RAP2-Delos-后端数据API服务器" class="headerlink" title="RAP2-Delos 后端数据API服务器"></a>RAP2-Delos 后端数据API服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. git clone https://github.com/thx/rap2-delos.git back-end</span><br><span class="line">2. cd back-end</span><br><span class="line">3. npm install</span><br><span class="line">4. 确认/config/config.dev.js中的配置</span><br><span class="line">5. npm run build</span><br><span class="line">6. 修改/config/config.prod.js中的服务器配置</span><br><span class="line">7. npm start</span><br></pre></td></tr></table></figure>
-<h3 id="允许MySqlWorkbench访问数据库"><a href="#允许MySqlWorkbench访问数据库" class="headerlink" title="允许MySqlWorkbench访问数据库"></a>允许MySqlWorkbench访问数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在服务器上进行操作，进入mysql</span><br><span class="line">mysql&gt;GRANT   ALL   PRIVILEGES   ON   *.*   TO   &apos;root&apos;@&apos;%&apos;   WITH   GRANT   OPTION  //赋予任何主机访问数据的权限</span><br><span class="line">mysql&gt;FLUSH   PRIVILEGES  //修改生效</span><br><span class="line">mysql&gt;EXIT  //退出MySQL服务器</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/03/01/杂烩/" data-id="cju9q5kns0005ppu2qnn85huk" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -556,15 +573,10 @@
 
   
     
-
-  
-    
-  
-    
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/03/">March 2019</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/vsCode/">vsCode</a></li></ul>
     </div>
   </div>
 
@@ -572,16 +584,35 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/frontEnd_blog/tags/blog/" style="font-size: 10px;">blog</a> <a href="/frontEnd_blog/tags/css/" style="font-size: 10px;">css</a> <a href="/frontEnd_blog/tags/git/" style="font-size: 10px;">git</a> <a href="/frontEnd_blog/tags/js/" style="font-size: 20px;">js</a> <a href="/frontEnd_blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/frontEnd_blog/tags/vsCode/" style="font-size: 10px;">vsCode</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/frontEnd_blog/2019/04/09/blog/">Hexo + github 搭建个人博客</a>
+            <a href="/frontEnd_blog/2019/04/10/valida/">js常见数据校验</a>
           </li>
         
           <li>
-            <a href="/frontEnd_blog/2019/04/07/valida/">js常见数据校验</a>
+            <a href="/frontEnd_blog/2019/04/09/blog/">Hexo + github 搭建个人博客</a>
           </li>
         
           <li>
@@ -589,11 +620,11 @@
           </li>
         
           <li>
-            <a href="/frontEnd_blog/2019/03/25/Git/">Git常用命令</a>
+            <a href="/frontEnd_blog/2019/04/01/clutter/">杂烩 Screen MariaDB mock mysql gitlab 允许MySqlWorkbench访问数据库 ...</a>
           </li>
         
           <li>
-            <a href="/frontEnd_blog/2019/03/25/vsCode/">vs code 配置及插件</a>
+            <a href="/frontEnd_blog/2019/03/25/Git/">Git常用命令</a>
           </li>
         
       </ul>
