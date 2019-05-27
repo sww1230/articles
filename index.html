@@ -62,6 +62,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-util" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/frontEnd_blog/2019/05/27/util/" class="article-date">
+  <time datetime="2019-05-26T16:00:00.000Z" itemprop="datePublished">2019-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/frontEnd_blog/2019/05/27/util/">js常用工具类库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一-momentJS日期处理"><a href="#一-momentJS日期处理" class="headerlink" title="一. momentJS日期处理"></a>一. momentJS日期处理</h3><p>日期处理类库<br><a href="http://momentjs.cn/" target="_blank" rel="noopener">http://momentjs.cn/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install moment</span><br><span class="line">var moment = require(&apos;moment&apos;);</span><br><span class="line">moment().format();</span><br><span class="line">moment().format(&apos;MM/DD/YYYY hh:mm:ss a dddd MMMM Do&apos;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="二-validatorJS验证处理"><a href="#二-validatorJS验证处理" class="headerlink" title="二. validatorJS验证处理"></a>二. validatorJS验证处理</h3><p>表单数据验证<br><a href="https://github.com/chriso/validator.js" target="_blank" rel="noopener">github地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install validator</span><br><span class="line">import validator from &apos;validator&apos;;</span><br><span class="line">validator.isEmail(&apos;foo@bar.com&apos;); //=&gt; true</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<h3 id="三-LodashJS数据处理"><a href="#三-LodashJS数据处理" class="headerlink" title="三. LodashJS数据处理"></a>三. LodashJS数据处理</h3><p>是一个一致性、模块化、高性能的 JavaScript 实用工具库。<br><a href="https://www.lodashjs.com/" target="_blank" rel="noopener">https://www.lodashjs.com/</a></p>
+<h4 id="为什么选择-Lodash-？"><a href="#为什么选择-Lodash-？" class="headerlink" title="为什么选择 Lodash ？"></a>为什么选择 Lodash ？</h4><p>  Lodash 通过降低 array、number、objects、string 等等的使用难度从而让JavaScript 变得更简单。<br>  Lodash 的模块化方法 非常适用于：</p>
+<ol>
+<li>遍历 array、object 和 string</li>
+<li>对值进行操作和检测</li>
+<li>创建符合功能的函数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i --save lodash</span><br><span class="line">var _ = require(&apos;lodash&apos;); // 24Kb</span><br><span class="line">var _ = require(&apos;lodash/core&apos;); // 4Kb</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<h3 id="四-卡片-泳道拖拽"><a href="#四-卡片-泳道拖拽" class="headerlink" title="四. 卡片|泳道拖拽"></a>四. 卡片|泳道拖拽</h3><p><a href="https://github.com/SortableJS/Vue.Draggable" target="_blank" rel="noopener">git地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm i -S vuedraggable</span><br><span class="line">import draggable from &apos;vuedraggable&apos;</span><br><span class="line">......</span><br><span class="line">&lt;draggable v-model=&quot;myArray&quot;&gt;</span><br><span class="line">  &lt;transition-group&gt;</span><br><span class="line">      &lt;div v-for=&quot;element in myArray&quot; :key=&quot;element.id&quot;&gt;</span><br><span class="line">          &#123;&#123;element.name&#125;&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">  &lt;/transition-group&gt;</span><br><span class="line">&lt;/draggable&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="五-threeJS数据驱动的三维图形可视化"><a href="#五-threeJS数据驱动的三维图形可视化" class="headerlink" title="五. threeJS数据驱动的三维图形可视化"></a>五. threeJS数据驱动的三维图形可视化</h3><p><a href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener">github地址</a><br><a href="https://threejs.org/docs/" target="_blank" rel="noopener">文档</a><br>该项目的目的是使用默认的WebGL渲染器创建一个易于使用，轻量级的3D库。该库还在示例中提供了Canvas 2D，SVG和CSS3D渲染器。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/05/27/util/" data-id="cjw68l7ay0005rwu2g008ozav" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-sketch安装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/frontEnd_blog/2019/04/28/sketch安装/" class="article-date">
@@ -113,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/28/sketch安装/" data-id="cjv0d7a3r0005jhu278my9e4l" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/28/sketch安装/" data-id="cjw68l7b2000brwu2ua7gmedr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/sketch/">sketch</a></li></ul>
@@ -186,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/12/thinking/" data-id="cjv0d7a3u0008jhu2oue0wmte" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/12/thinking/" data-id="cjw68l7b10009rwu2930kmaix" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/blog/">blog</a></li></ul>
@@ -234,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/10/valida/" data-id="cjv0d7a3y000cjhu26flwhgp5" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/10/valida/" data-id="cjw68l7b4000drwu28cly5r4m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li></ul>
@@ -295,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/09/blog/" data-id="cjv0d7a3j0001jhu23pva1zsg" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/09/blog/" data-id="cjw68l7ax0004rwu2uknfdmlp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/blog/">blog</a></li></ul>
@@ -376,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/05/typeScript/" data-id="cjv0d7a3w0009jhu2uskt4yx8" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/05/typeScript/" data-id="cjw68l7b00008rwu2wjxtb8w9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li></ul>
@@ -451,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/01/clutter/" data-id="cjv0d7a3o0003jhu20efk3x1e" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/01/clutter/" data-id="cjw68l7aw0003rwu25yibo6zw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/shell/">shell</a></li></ul>
@@ -589,7 +641,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/03/25/Git/" data-id="cjv0d7a3c0000jhu2tvk1ahn3" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/03/25/Git/" data-id="cjw68l7an0000rwu2jwpu4vkw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/git/">git</a></li></ul>
@@ -642,7 +694,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/03/25/vsCode/" data-id="cjv0d7a40000ejhu25cctrcua" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/03/25/vsCode/" data-id="cjw68l7b5000frwu206tccvby" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/vsCode/">vsCode</a></li></ul>
@@ -689,7 +741,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/03/05/sass/" data-id="cjv0d7a3q0004jhu2qorqpdi0" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/03/05/sass/" data-id="cjw68l7as0001rwu2hz24hthv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/css/">css</a></li></ul>
@@ -724,7 +776,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/frontEnd_blog/tags/blog/" style="font-size: 20px;">blog</a> <a href="/frontEnd_blog/tags/css/" style="font-size: 10px;">css</a> <a href="/frontEnd_blog/tags/git/" style="font-size: 10px;">git</a> <a href="/frontEnd_blog/tags/js/" style="font-size: 20px;">js</a> <a href="/frontEnd_blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/frontEnd_blog/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/frontEnd_blog/tags/vsCode/" style="font-size: 10px;">vsCode</a>
+      <a href="/frontEnd_blog/tags/blog/" style="font-size: 15px;">blog</a> <a href="/frontEnd_blog/tags/css/" style="font-size: 10px;">css</a> <a href="/frontEnd_blog/tags/git/" style="font-size: 10px;">git</a> <a href="/frontEnd_blog/tags/js/" style="font-size: 20px;">js</a> <a href="/frontEnd_blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/frontEnd_blog/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/frontEnd_blog/tags/vsCode/" style="font-size: 10px;">vsCode</a>
     </div>
   </div>
 
@@ -733,7 +785,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/03/">三月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/03/">三月 2019</a></li></ul>
     </div>
   </div>
 
@@ -744,6 +796,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/frontEnd_blog/2019/05/27/util/">js常用工具类库</a>
+          </li>
         
           <li>
             <a href="/frontEnd_blog/2019/04/28/sketch安装/">sketch设计软件安装及插件配置</a>
@@ -759,10 +815,6 @@
         
           <li>
             <a href="/frontEnd_blog/2019/04/09/blog/">Hexo + github 搭建个人博客</a>
-          </li>
-        
-          <li>
-            <a href="/frontEnd_blog/2019/04/05/typeScript/">typeScript</a>
           </li>
         
       </ul>
