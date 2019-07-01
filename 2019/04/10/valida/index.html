@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="frontEnd_blog">
 <meta property="og:description" content="1.输入字符必须为中文  1234String.prototype.checkChinese(str)&amp;#123;  var reg = new RegExp(&apos;^[\\u4E00-\\u9FFF]+$&apos;,&apos;g&apos;)  return reg.test(str);&amp;#125;   2.去除字符两边的空格   123String.prototype.trim = function()&amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-16T03:18:39.205Z">
+<meta property="og:updated_time" content="2019-06-18T08:13:39.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js常见数据校验">
 <meta name="twitter:description" content="1.输入字符必须为中文  1234String.prototype.checkChinese(str)&amp;#123;  var reg = new RegExp(&apos;^[\\u4E00-\\u9FFF]+$&apos;,&apos;g&apos;)  return reg.test(str);&amp;#125;   2.去除字符两边的空格   123String.prototype.trim = function()&amp;#123;">
@@ -97,11 +97,12 @@
 <p>  7.<strong>合法IP</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.checkIP = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^(?=(\b|\D))(((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))\.)&#123;3&#125;((\d&#123;1,2&#125;)|(1\d&#123;1,2&#125;)|(2[0-4]\d)|(25[0-5]))(?=(\b|\D))$/</span>;</span><br><span class="line">  <span class="keyword">return</span> reg.test(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>  8.<strong>输入字符类型为数字，且长度不能越过n值</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// symbols: &gt; || &lt; || &gt;= || &lt;= || != || == || len</span></span><br><span class="line"><span class="built_in">String</span>.prototype.numJudge = <span class="function"><span class="keyword">function</span>(<span class="params">symbols, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="regexp">/^\d+\.?\d+$/</span>.test(<span class="keyword">this</span>))&#123;</span><br><span class="line">    <span class="keyword">if</span> (symbols == <span class="string">'len'</span> &amp;&amp; !<span class="regexp">/\./</span>.test(<span class="keyword">this</span>) &amp;&amp; <span class="keyword">this</span>.length == value)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(symbols != <span class="string">'len'</span> &amp;&amp; <span class="built_in">eval</span>(<span class="keyword">this</span> + <span class="string">' '</span>+ symbols +<span class="string">' '</span> + value))&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>  9.<strong>滚动到窗口底部时加载数据</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">handleScroll()&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.reloading)&#123; <span class="comment">// 是否可能加载数据</span></span><br><span class="line">    <span class="keyword">var</span> wScrollY = <span class="built_in">window</span>.scrollY; <span class="comment">// 当前滚动条位置  </span></span><br><span class="line">    <span class="keyword">var</span> wInnerH = <span class="built_in">window</span>.innerHeight; <span class="comment">// 设备窗口的高度（不会变）  </span></span><br><span class="line">    <span class="keyword">var</span> bScrollH = <span class="built_in">document</span>.body.scrollHeight; <span class="comment">// 滚动条总高度      </span></span><br><span class="line">    <span class="keyword">if</span> (wScrollY + wInnerH &gt;= bScrollH) &#123;</span><br><span class="line">      <span class="keyword">this</span>.reloading = <span class="literal">false</span> </span><br><span class="line">      <span class="keyword">this</span>.reloadCount++   <span class="comment">// 监听加载的次数时开始请求，请求成功后设置reloading:true，实现再次滚动到底部时加载</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  10.<strong>验证字符串是否为json格式</strong><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">isJSON(value, callback, str) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value == <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      value = value.replace(<span class="regexp">/'/g</span>, <span class="string">'"'</span>);</span><br><span class="line">      <span class="keyword">var</span> obj= str ? <span class="built_in">JSON</span>.parse(<span class="string">"&#123;"</span>+value+<span class="string">"&#125;"</span>) : <span class="built_in">JSON</span>.parse(value);</span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">typeof</span> obj ===  <span class="string">'object'</span>)&#123;</span><br><span class="line">        callback()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">      callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'数据格式不正确'</span>))</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  callback(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'数据格式不正确'</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://sww1230.github.io/2019/04/10/valida/" data-id="cjw68l7b4000drwu28cly5r4m" class="article-share-link">Share</a>
+      <a data-url="https://sww1230.github.io/2019/04/10/valida/" data-id="cjxjtv3dm000gl6u2m1i7k70d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li></ul>
@@ -122,7 +123,7 @@
     </a>
   
   
-    <a href="/frontEnd_blog/2019/04/09/blog/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/frontEnd_blog/2019/04/09/CentOS/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Hexo + github 搭建个人博客</div>
     </a>
@@ -143,7 +144,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/sketch/">sketch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/vsCode/">vsCode</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/sketch/">sketch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/vsCode/">vsCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/frontEnd_blog/tags/vue/">vue</a></li></ul>
     </div>
   </div>
 
@@ -153,7 +154,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/frontEnd_blog/tags/blog/" style="font-size: 15px;">blog</a> <a href="/frontEnd_blog/tags/css/" style="font-size: 10px;">css</a> <a href="/frontEnd_blog/tags/git/" style="font-size: 10px;">git</a> <a href="/frontEnd_blog/tags/js/" style="font-size: 20px;">js</a> <a href="/frontEnd_blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/frontEnd_blog/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/frontEnd_blog/tags/vsCode/" style="font-size: 10px;">vsCode</a>
+      <a href="/frontEnd_blog/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/frontEnd_blog/tags/blog/" style="font-size: 15px;">blog</a> <a href="/frontEnd_blog/tags/css/" style="font-size: 10px;">css</a> <a href="/frontEnd_blog/tags/git/" style="font-size: 10px;">git</a> <a href="/frontEnd_blog/tags/js/" style="font-size: 20px;">js</a> <a href="/frontEnd_blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/frontEnd_blog/tags/sketch/" style="font-size: 10px;">sketch</a> <a href="/frontEnd_blog/tags/vsCode/" style="font-size: 10px;">vsCode</a> <a href="/frontEnd_blog/tags/vue/" style="font-size: 15px;">vue</a>
     </div>
   </div>
 
@@ -162,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/03/">三月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/frontEnd_blog/archives/2019/03/">三月 2019</a></li></ul>
     </div>
   </div>
 
@@ -175,6 +176,10 @@
       <ul>
         
           <li>
+            <a href="/frontEnd_blog/2019/06/04/electron/">ElectronJS</a>
+          </li>
+        
+          <li>
             <a href="/frontEnd_blog/2019/05/27/util/">js常用工具类库</a>
           </li>
         
@@ -183,15 +188,11 @@
           </li>
         
           <li>
+            <a href="/frontEnd_blog/2019/04/25/vue/">vue动态指令</a>
+          </li>
+        
+          <li>
             <a href="/frontEnd_blog/2019/04/12/thinking/">前端开发思考</a>
-          </li>
-        
-          <li>
-            <a href="/frontEnd_blog/2019/04/10/valida/">js常见数据校验</a>
-          </li>
-        
-          <li>
-            <a href="/frontEnd_blog/2019/04/09/blog/">Hexo + github 搭建个人博客</a>
           </li>
         
       </ul>

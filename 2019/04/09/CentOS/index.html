@@ -5,15 +5,20 @@
   
 
   
-  <title>Tag: blog | frontEnd_blog</title>
+  <title>Hexo + github 搭建个人博客 | frontEnd_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="frontEnd_blog">
-<meta property="og:url" content="https://sww1230.github.io/tags/blog/index.html">
+  <meta name="description" content="一. 安装nginx yun install -y nginx whereis nginx 默认目录 nginx 启动 nginx -t 测试Nginx配置是否正确 nginx -s reload 重启 ps -ef |grep nginx 查看nginx的进程号 nginx -s stop nginx 或 kill -9 pid 服务停止  二. 安装git git tag -l 查看tag l">
+<meta name="keywords" content="CentOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo + github 搭建个人博客">
+<meta property="og:url" content="https://sww1230.github.io/2019/04/09/CentOS/index.html">
 <meta property="og:site_name" content="frontEnd_blog">
+<meta property="og:description" content="一. 安装nginx yun install -y nginx whereis nginx 默认目录 nginx 启动 nginx -t 测试Nginx配置是否正确 nginx -s reload 重启 ps -ef |grep nginx 查看nginx的进程号 nginx -s stop nginx 或 kill -9 pid 服务停止  二. 安装git git tag -l 查看tag l">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-01T03:28:51.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="frontEnd_blog">
+<meta name="twitter:title" content="Hexo + github 搭建个人博客">
+<meta name="twitter:description" content="一. 安装nginx yun install -y nginx whereis nginx 默认目录 nginx 启动 nginx -t 测试Nginx配置是否正确 nginx -s reload 重启 ps -ef |grep nginx 查看nginx的进程号 nginx -s stop nginx 或 kill -9 pid 服务停止  二. 安装git git tag -l 查看tag l">
   
   
     <link rel="icon" href="/favicon.png">
@@ -60,59 +65,86 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/frontEnd_blog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/frontEnd_blog/2019/04/12/thinking/" class="archive-article-date">
-  <time datetime="2019-04-11T16:00:00.000Z" itemprop="datePublished">4月 12</time>
+        <section id="main"><article id="post-CentOS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/frontEnd_blog/2019/04/09/CentOS/" class="article-date">
+  <time datetime="2019-04-08T16:00:00.000Z" itemprop="datePublished">2019-04-09</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/frontEnd_blog/2019/04/12/thinking/">前端开发思考</a>
+    <h1 class="article-title" itemprop="name">
+      Hexo + github 搭建个人博客
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/frontEnd_blog/2019/04/09/blog/" class="archive-article-date">
-  <time datetime="2019-04-08T16:00:00.000Z" itemprop="datePublished">4月 9</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/frontEnd_blog/2019/04/09/blog/">Hexo + github 搭建个人博客</a>
-    </h1>
-  
+        <h3 id="一-安装nginx"><a href="#一-安装nginx" class="headerlink" title="一. 安装nginx"></a>一. 安装nginx</h3><ol>
+<li>yun install -y nginx</li>
+<li>whereis nginx 默认目录</li>
+<li>nginx 启动</li>
+<li>nginx -t 测试Nginx配置是否正确</li>
+<li>nginx -s reload 重启</li>
+<li>ps -ef |grep nginx 查看nginx的进程号</li>
+<li>nginx -s stop nginx 或 kill -9 pid 服务停止</li>
+</ol>
+<h3 id="二-安装git"><a href="#二-安装git" class="headerlink" title="二. 安装git"></a>二. 安装git</h3><ol>
+<li>git tag -l 查看tag list</li>
+<li>git checkout v6.2.4</li>
+</ol>
+<h3 id="安装grafana"><a href="#安装grafana" class="headerlink" title="安装grafana"></a>安装grafana</h3><ol>
+<li><p>liunx安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.grafana.com/wwwww/release/grafana-6.2.4-1.x86_64.rpm </span><br><span class="line">sudo yum localinstall grafana-6.2.4-1.x86_64.rpm </span><br><span class="line"></span><br><span class="line">sudo yum install grafana</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mac安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew update </span><br><span class="line">brew install grafana</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export GOROOT=/Users/apple/workshop/go</span><br><span class="line">export GOPATH=/Users/apple/go</span><br><span class="line">export PATH=$&#123;PATH&#125;:$GOPATH/bin</span><br><span class="line">export PATH=$&#123;PATH&#125;:$GOROOT/bin</span><br><span class="line"></span><br><span class="line">bin/darwin-amd64/grafana-server  &amp;</span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/04/09/CentOS/" data-id="cjxjtv3e0000nl6u2i3mcjpya" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/CentOS/">CentOS</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/frontEnd_blog/2019/04/10/valida/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js常见数据校验
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/frontEnd_blog/2019/04/09/blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo + github 搭建个人博客</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

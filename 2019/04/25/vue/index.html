@@ -5,15 +5,20 @@
   
 
   
-  <title>Tag: blog | frontEnd_blog</title>
+  <title>vue动态指令 | frontEnd_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="frontEnd_blog">
-<meta property="og:url" content="https://sww1230.github.io/tags/blog/index.html">
+  <meta name="description" content="自定义定位的指令  1234567891011121314151617181920212223242526272829/*** 简写 l:left; r:rihgt; b:bottom; t:top; z:z-index; bg:background; w:widht; h:height;* w、h的值根据top.left.right.bottom来进行设置* &amp;lt;div v-pos:top.">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue动态指令">
+<meta property="og:url" content="https://sww1230.github.io/2019/04/25/vue/index.html">
 <meta property="og:site_name" content="frontEnd_blog">
+<meta property="og:description" content="自定义定位的指令  1234567891011121314151617181920212223242526272829/*** 简写 l:left; r:rihgt; b:bottom; t:top; z:z-index; bg:background; w:widht; h:height;* w、h的值根据top.left.right.bottom来进行设置* &amp;lt;div v-pos:top.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-25T07:53:56.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="frontEnd_blog">
+<meta name="twitter:title" content="vue动态指令">
+<meta name="twitter:description" content="自定义定位的指令  1234567891011121314151617181920212223242526272829/*** 简写 l:left; r:rihgt; b:bottom; t:top; z:z-index; bg:background; w:widht; h:height;* w、h的值根据top.left.right.bottom来进行设置* &amp;lt;div v-pos:top.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -60,59 +65,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/frontEnd_blog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/frontEnd_blog/2019/04/12/thinking/" class="archive-article-date">
-  <time datetime="2019-04-11T16:00:00.000Z" itemprop="datePublished">4月 12</time>
+        <section id="main"><article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/frontEnd_blog/2019/04/25/vue/" class="article-date">
+  <time datetime="2019-04-24T16:00:00.000Z" itemprop="datePublished">2019-04-25</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/frontEnd_blog/2019/04/12/thinking/">前端开发思考</a>
+    <h1 class="article-title" itemprop="name">
+      vue动态指令
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/frontEnd_blog/2019/04/09/blog/" class="archive-article-date">
-  <time datetime="2019-04-08T16:00:00.000Z" itemprop="datePublished">4月 9</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/frontEnd_blog/2019/04/09/blog/">Hexo + github 搭建个人博客</a>
-    </h1>
-  
+        <h3 id="自定义定位的指令"><a href="#自定义定位的指令" class="headerlink" title="自定义定位的指令"></a>自定义定位的指令</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* 简写 l:left; r:rihgt; b:bottom; t:top; z:z-index; bg:background; w:widht; h:height;</span><br><span class="line">* w、h的值根据top.left.right.bottom来进行设置</span><br><span class="line">* &lt;div v-pos:top.left=&quot;data&quot;&gt;&lt;/div&gt;</span><br><span class="line">* data: &#123;</span><br><span class="line">    t:0,</span><br><span class="line">    l:0,</span><br><span class="line">    w:50,</span><br><span class="line">    h:50,</span><br><span class="line">    bg:&apos;red&apos;,</span><br><span class="line">    z:9</span><br><span class="line">  &#125;</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">Vue.directive(&apos;position&apos;, &#123;</span><br><span class="line">  bind: function (el, binding, vnode) &#123;</span><br><span class="line">    el.style.position = &apos;fixed&apos;</span><br><span class="line">    var pos1 = [&apos;left&apos;, &apos;right&apos;, &apos;bottom&apos;, &apos;top&apos;].includes(binding.arg) ? binding.arg : &apos;left&apos;</span><br><span class="line">    el.style[pos1] = (binding.value[pos1.substring(0,1)] || &apos;0&apos;) + &apos;px&apos;</span><br><span class="line">    el.style.background = binding.value.bg || &apos;red&apos;</span><br><span class="line">    binding.value.w &amp;&amp; (el.style.width = binding.value.w + &apos;px&apos;)</span><br><span class="line">    binding.value.h &amp;&amp; (el.style.height = binding.value.h + &apos;px&apos;)</span><br><span class="line">    el.style.zIndex =  binding.value.z || &apos;0&apos;</span><br><span class="line">    let pos2 = Object.keys(binding.modifiers)</span><br><span class="line">    pos2.map(p=&gt;&#123;</span><br><span class="line">      el.style[p] = (binding.value[p.substring(0, 1)] || &apos;0&apos;) + &apos;px&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sww1230.github.io/2019/04/25/vue/" data-id="cjxjtv3dx000ll6u29p3ycgoy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/frontEnd_blog/tags/vue/">vue</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/frontEnd_blog/2019/04/28/sketch安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          sketch设计软件安装及插件配置
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/frontEnd_blog/2019/04/12/thinking/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">前端开发思考</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
